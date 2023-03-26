@@ -995,8 +995,8 @@ The following example queries for the current pair and trades from today, howeve
 ``` python
 trades = Trade.get_trades_proxy(pair=metadata['pair'],
                                 open_date=datetime.now(timezone.utc) - timedelta(days=1),
-                                is_open=False,
-            ]).order_by(Trade.close_date).all()
+                                is_open=False)
+                                .order_by(Trade.close_date).all()
 # Summarize profit for this pair.
 curdayprofit = sum(trade.close_profit for trade in trades)
 ```
